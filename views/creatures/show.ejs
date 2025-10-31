@@ -1,0 +1,39 @@
+<!-- views/creatures/show.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="/css/styles.css">
+
+    <title>
+        <%= creature.title %>
+    </title>
+</head>
+
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+        <h1>
+            <%= creature.name %>
+        </h1>
+            <p>Origin: <%= creature.origin %>
+            </p>
+            <p>Hp : <%= creature.hp %>
+            </p>
+            <p>Rarity: <%= creature.rarity %>
+            </p>
+            <p>Bio: : <%= creature.description %>
+            </p>
+
+                
+
+    <a href="/users/<%= user._id %>/creatures/<%= creature._id %>/edit">EDIT</a>
+
+    <form action="/users/<%= user._id %>/creatures/<%= creature._id %>?_method=DELETE" method="POST">
+        <button type="submit">DELETE</button>
+    </form>
+</body>
+
+</html>

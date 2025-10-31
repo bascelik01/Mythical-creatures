@@ -1,0 +1,55 @@
+<!-- views/creatures/edit.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/css/styles.css">
+
+    <title>Editing <%= creature.title %>
+    </title>
+</head>
+
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+        <h1>Edit <%= creature.name %> at <%= creature.creature %>
+        </h1>
+        <form action="/users/<%= user._id %>/creatures/<%= creature._id %>?_method=PUT" method="POST">
+          
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" value="<%= creature.name %>">
+            <label for="origin">Origin:</label>
+            <textarea name="origin" id="origin"><%= creature.origin %></textarea>
+            <label for="hp">HP:</label>
+            <input type="number" name="hp" id="hp" value="<%= creature.hp %>">
+            <label for="rarity">Rarity:</label>
+            <select id="rarity" name="rarity">
+                <option value="common" <%=creature.rarity==="common" ? "selected" : "" %>
+                    >
+                    Common
+                </option>
+                <option value="uncommon" <%=creature.rarity==="uncommon" ? "selected" : "" %>
+                    >
+                    Uncommon
+                </option>
+                <option value="rare" <%=creature.rarity==="rare" ? "selected" : "" %>
+                    >
+                    Rare
+                </option>
+                <option value="mythical" <%=creature.rarity==="mythical" ? "selected" : "" %>
+                    >
+                    Mythical
+                </option>
+                <option value="legendary" <%=creature.rarity==="legendary" ? "selected" : "" %>
+                    >
+                    Legendary
+                </option>
+            </select>
+<label for="origin">Bio:</label>
+            <textarea name="description" id="description"><%= creature.description %></textarea>
+            <button type="submit">Update creature</button>
+        </form>
+</body>
+
+</html>

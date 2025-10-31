@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/CSS/style.css">
+  <title>Sign In</title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <div>
+    <h1>Sign In</h1>
+    <form action="/auth/sign-in" method="POST" style="display: flex; flex-direction: column; gap: 16px;">
+      <label for="username" style="font-weight: 500;">Username</label>
+      <input type="text" name="username" id="username"/>
+      <label for="password" style="font-weight: 500;">Password</label>
+      <input type="password" name="password" id="password"/>
+      <button type="submit">Sign In</button>
+    </form>
+    <div>
+      <span>Don't have an account?</span>
+      <a href="/auth/sign-up">Sign up</a>
+    </div>
+  </div>
+</body>
+</html>

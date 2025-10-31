@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <title>Mythical Creatures</title>
+
+</head>
+<body>
+  <h1>Mythical Creatures</h1>
+  <div class="grid">
+   <% if (creatures.length === 0) { %>
+  <h3>Nema</h3>
+<% }  else { %>
+    <% creatures.forEach(creature => { %>
+      <a href="/users/user_.id/creatures/<%=creature.id%>"><div class="card">
+        <h2><%= creature.name %></h2>
+        <p><strong>Type:</strong> <%= creature.type %></p>
+        <p><strong>Origin:</strong> <%= creature.origin %></p>
+        <p><%= creature.description %></p>
+      </div></a>
+    <% })} %>
+  <a href="/users/<%=user._id%>/creatures/new">Add New</a>
+  </div>
+</body>
+</html>
